@@ -18,7 +18,7 @@ public class Quiz03 {
 	OrderRepository orderRepository;
 
 	@Test
-	public void 데이터단건조회() {
+	void 데이터단건조회() {
 		Optional<Order> result = orderRepository.findById(1); 
 		
 		if (result.isPresent()) {
@@ -28,7 +28,7 @@ public class Quiz03 {
 	}	
 	
 	@Test
-	public void 데이터전체조회() {
+	void 데이터전체조회() {
 		List<Order> list = orderRepository.findAll(); //조회결과를 리스트로 반환
 		for(Order order : list) {
 			System.out.println(order);
@@ -36,7 +36,7 @@ public class Quiz03 {
 	}
 	
 	@Test
-	public void 데이터추가() {
+	void 데이터추가() {
 
 		List<Order> list = new ArrayList<>();
 		
@@ -45,31 +45,31 @@ public class Quiz03 {
 		LocalDate localdate3 = LocalDate.of(2023, 7, 3);
 
 		Order order1 = Order.builder()
-				.customer_name("둘리")
-				.order_date(localdate1)
-				.ship_address("인천 구월동")
+				.customerName("둘리")
+				.orderDate(localdate1)
+				.shipAddress("인천 구월동")
 				.build();
 
 		Order order2 = Order.builder()
-				.customer_name("또치")
-				.order_date(localdate2)
-				.ship_address("인천 연수동")
+				.customerName("또치")
+				.orderDate(localdate2)
+				.shipAddress("인천 연수동")
 				.build();
 
 		Order order3 = Order.builder()
-				.customer_name("도우너")
-				.order_date(localdate3)
-				.ship_address("부산 동래동")
+				.customerName("도우너")
+				.orderDate(localdate3)
+				.shipAddress("부산 동래동")
 				.build();
 
 		Order order4 = Order.builder()
-				.customer_name("마이콜")
-				.order_date(localdate1)
+				.customerName("마이콜")
+				.orderDate(localdate1)
 				.build();
 
 		Order order5 = Order.builder()
-				.customer_name("고길동")
-				.order_date(localdate2)
+				.customerName("고길동")
+				.orderDate(localdate2)
 				.build();
 
 		list.add(order1);
@@ -82,21 +82,21 @@ public class Quiz03 {
 	}
 
 	@Test
-	public void 데이터수정() {
+	void 데이터수정() {
 		Optional<Order> result = orderRepository.findById(1);
 		Order order = result.get();
-		order.setCustomer_name("홍길동");
+		order.setCustomerName("홍길동");
 		
 		orderRepository.save(order);
 	}	
 	
 	@Test
-	public void 데이터삭제() {
+	void 데이터삭제() {
 		orderRepository.deleteById(1);
 	}
 	
 	@Test
-	public void 데이터전체삭제() {
+	void 데이터전체삭제() {
 		orderRepository.deleteAll();
 	}
 }

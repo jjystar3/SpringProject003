@@ -17,7 +17,7 @@ public class Quiz01 {
 	BookRepository bookRepository;
 
 	@Test
-	public void 데이터단건조회() {
+	void 데이터단건조회() {
 		Optional<Book> result = bookRepository.findById(1); 
 		
 		if (result.isPresent()) {
@@ -27,7 +27,7 @@ public class Quiz01 {
 	}	
 	
 	@Test
-	public void 데이터전체조회() {
+	void 데이터전체조회() {
 		List<Book> list = bookRepository.findAll(); //조회결과를 리스트로 반환
 		for(Book book : list) {
 			System.out.println(book);
@@ -35,7 +35,7 @@ public class Quiz01 {
 	}
 	
 	@Test
-	public void 데이터추가() {
+	void 데이터추가() {
 
 		List<Book> list = new ArrayList<>();
 
@@ -72,7 +72,7 @@ public class Quiz01 {
 	}
 
 	@Test
-	public void 데이터수정() {
+	void 데이터수정() {
 		Optional<Book> result = bookRepository.findById(1);
 		Book book = result.get();
 		book.setPrice(2000);
@@ -81,12 +81,12 @@ public class Quiz01 {
 	}	
 	
 	@Test
-	public void 데이터삭제() {
+	void 데이터삭제() {
 		bookRepository.deleteById(1);
 	}
 	
 	@Test
-	public void 데이터전체삭제() {
+	void 데이터전체삭제() {
 		bookRepository.deleteAll();
 	}
 }

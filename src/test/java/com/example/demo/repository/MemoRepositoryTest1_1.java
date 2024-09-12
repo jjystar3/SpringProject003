@@ -17,12 +17,12 @@ public class MemoRepositoryTest1_1 {
 	MemoRepository memoRepository;
 	
 	@Test
-	public void 리파지토리객체를가져왔는지확인() {
+	void 리파지토리객체를가져왔는지확인() {
 		System.out.println("memoRepository = " + memoRepository);
 	}
 	
 	@Test
-	public void 데이터등록() {
+	void 데이터등록() {
 		// 새로운 데이터 생성
 		Memo memo = Memo.builder().text("새글입니다").build();
 		
@@ -32,7 +32,7 @@ public class MemoRepositoryTest1_1 {
 	}
 
 	@Test
-	public void 데이터일괄등록() {
+	void 데이터일괄등록() {
 		// 메모 리스트 생성
 		List<Memo> list = new ArrayList<>();
 		Memo memo1 = Memo.builder().text("새글입니다").build();
@@ -43,7 +43,7 @@ public class MemoRepositoryTest1_1 {
 	}
 	
 	@Test
-	public void 데이터단건조회() {
+	void 데이터단건조회() {
 		// 결과값을 반환받을 때는 함수의 선언부를 확인 할 것
 		// 그리고 그 타입을 대입연산자 앞부분에 변수로 선언
 		Optional<Memo> optional = memoRepository.findById(5); //조회결과를 optional로 반환. 결과가 존재하는지 확인하는 형태
@@ -59,7 +59,7 @@ public class MemoRepositoryTest1_1 {
 	}
 
 	@Test
-	public void 데이터전체조회() {
+	void 데이터전체조회() {
 		List<Memo> list = memoRepository.findAll(); //조회결과를 리스트로 반환
 		for(Memo memo : list) {
 			System.out.println(memo);
@@ -67,7 +67,7 @@ public class MemoRepositoryTest1_1 {
 	}
 
 	@Test
-	public void 데이터수정() {
+	void 데이터수정() {
 		Memo memo = Memo.builder().no(1).text("글이 수정되었습니다").build();
 		memoRepository.save(memo);	//1번이 존재하는지 확인하고 update 실행
 		// select > update sql이 생성됨
@@ -75,7 +75,7 @@ public class MemoRepositoryTest1_1 {
 	}
 	
 	@Test
-	public void 데이터삭제() {
+	void 데이터삭제() {
 		//1번이 존재하는지 확인하고 delete 실행
 		memoRepository.deleteById(1);
 		//1번이 없으면 DataAccessException 에러가 발생함
@@ -83,7 +83,7 @@ public class MemoRepositoryTest1_1 {
 	}
 	
 	@Test
-	public void 데이터전체삭제() {
+	void 데이터전체삭제() {
 		// deleteAll: 테이블을 조회하고 모든 데이터를 삭제함
 		memoRepository.deleteAll();
 		
