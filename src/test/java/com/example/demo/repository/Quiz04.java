@@ -17,7 +17,7 @@ public class Quiz04 {
 	MemberRepository memberRepository;
 
 	@Test
-	public void 데이터단건조회() {
+	void 데이터단건조회() {
 		Optional<Member> result = memberRepository.findById("admin"); 
 		
 		if (result.isPresent()) {
@@ -27,15 +27,15 @@ public class Quiz04 {
 	}	
 	
 	@Test
-	public void 데이터전체조회() {
-		List<Member> list = memberRepository.findAll();
+	void 데이터전체조회() {
+		List<Member> list = memberRepository.findAll(); //조회결과를 리스트로 반환
 		for(Member member : list) {
 			System.out.println(member);
 		}
 	}
 	
 	@Test
-	public void 데이터추가() {
+	void 데이터추가() {
 
 		List<Member> list = new ArrayList<>();
 		
@@ -72,7 +72,7 @@ public class Quiz04 {
 	}
 
 	@Test
-	public void 데이터수정() {
+	void 데이터수정() {
 		Optional<Member> result = memberRepository.findById("admin");
 		Member member = result.get();
 		member.setPassword("1234");
@@ -81,12 +81,12 @@ public class Quiz04 {
 	}	
 	
 	@Test
-	public void 데이터삭제() {
+	void 데이터삭제() {
 		memberRepository.deleteById("admin");
 	}
 	
 	@Test
-	public void 데이터전체삭제() {
+	void 데이터전체삭제() {
 		memberRepository.deleteAll();
 	}
 }
